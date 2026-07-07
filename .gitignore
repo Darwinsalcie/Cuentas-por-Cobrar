@@ -1,0 +1,32 @@
+# Next.js
+cxc-app/.next/
+cxc-app/out/
+
+# Production
+cxc-app/build
+
+# Dependencies
+cxc-app/node_modules/
+cxc-app/.pnpm-debug.log*
+
+# Database / Prisma
+cxc-app/prisma/*.db
+cxc-app/prisma/*.db-journal
+
+# Environment variables
+cxc-app/.env
+cxc-app/.env.local
+cxc-app/.env.production
+
+# IDEs and editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+.DS_Store
+Thumbs.db
