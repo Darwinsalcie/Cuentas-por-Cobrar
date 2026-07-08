@@ -1,7 +1,7 @@
 "use client"
 
 import { usePathname } from "next/navigation"
-import { useTheme } from "next-themes"
+import { useTheme } from "@teispace/next-themes"
 import { Menu, Sun, Moon, Laptop, User, LogOut, Settings } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
