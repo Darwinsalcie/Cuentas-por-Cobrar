@@ -171,7 +171,13 @@ export function ConsultaReporte({
             <label className="text-xs font-medium text-slate-500">Cliente</label>
             <Select value={clienteId} onValueChange={(val) => setClienteId(val ?? "ALL")}>
               <SelectTrigger className="h-9">
-                <SelectValue placeholder="Todos" />
+                <SelectValue>
+                  {(value: string | null) => {
+                    if (!value || value === "ALL") return "Todos los Clientes";
+                    const c = clientes.find((item) => item.id === value);
+                    return c ? c.nombre : value;
+                  }}
+                </SelectValue>
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="ALL">Todos los Clientes</SelectItem>
@@ -189,7 +195,13 @@ export function ConsultaReporte({
             <label className="text-xs font-medium text-slate-500">Tipo de Documento</label>
             <Select value={tipoDocumentoId} onValueChange={(val) => setTipoDocumentoId(val ?? "ALL")}>
               <SelectTrigger className="h-9">
-                <SelectValue placeholder="Todos" />
+                <SelectValue>
+                  {(value: string | null) => {
+                    if (!value || value === "ALL") return "Todos los Tipos";
+                    const td = tiposDocumento.find((item) => item.id === value);
+                    return td ? td.descripcion : value;
+                  }}
+                </SelectValue>
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="ALL">Todos los Tipos</SelectItem>
@@ -207,7 +219,14 @@ export function ConsultaReporte({
             <label className="text-xs font-medium text-slate-500">Movimiento</label>
             <Select value={tipoMovimiento} onValueChange={(val) => setTipoMovimiento(val ?? "ALL")}>
               <SelectTrigger className="h-9">
-                <SelectValue placeholder="Todos" />
+                <SelectValue>
+                  {(value: string | null) => {
+                    if (!value || value === "ALL") return "Todos (DB / CR)";
+                    if (value === "DB") return "Débito (DB)";
+                    if (value === "CR") return "Crédito (CR)";
+                    return value;
+                  }}
+                </SelectValue>
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="ALL">Todos (DB / CR)</SelectItem>
